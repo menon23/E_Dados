@@ -42,6 +42,7 @@ void removeUltimo(Tno **prim){
         *prim =(aux)->prox;
         free(aux);
 }
+
 int main(){
         int op;
         Tno *prim=NULL;
@@ -73,4 +74,3 @@ int main(){
         }while(op!=0);
         return 0;
 }
-
