@@ -4,7 +4,7 @@
 
 typedef struct Tno{
   int chave;
-        unsigned char vetor[tam];
+  unsigned char vetor[tam];
   struct Tno *prox;
 }Tno;
 
