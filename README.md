@@ -13,4 +13,6 @@
     <a href="https://github.com/menon23/E_Dados/blob/main/random.c"><i>listaS.c</i></a> gera numero aleatorio com o mtwister 
   </li>  
 </ul>
+ssh a1488660@193.123.112.46
+
    
