@@ -5,29 +5,29 @@ typedef struct carteira
     int valor;
 } carteira;
 
-void transacao(int nTrans, unsigned char vetor[])
+void transacao(unsigned char vetor[],int nTrans, int tam)
 {
-    carteira bitcoin[6];
+    carteira bitcoin[tam];
     //zerando
-    for(int i=0; i<6; i++)
+    for(int i=0; i<tam; i++)
     {
         bitcoin[i].id = i;
         bitcoin[i].valor = 0;
     }
     //dando os valores
-    for(int i=0; i<nTrans*3; i++)
+    for(int j=0; j<nTrans; j++)
     {
-        if(vetor[i]==i)
+        for(int i=0; i<nTrans*3; i=i+3)
         {
-            bitcoin[i].valor = bitcoin[i].valor -  vetor[i+2];
-            if(bitcoin[i].valor<0)
-                bitcoin[i].valor =0;
+            if(vetor[i]==j)
+            {
+                bitcoin[j].valor = bitcoin[j].valor -  vetor[i+2];
+                if(bitcoin[j].valor<0)
+                    bitcoin[j].valor =0;
+            }
+            if(vetor[i+1]==j)
+                bitcoin[j].valor = bitcoin[j].valor +  vetor[i+2];
         }
-    }
-    for(int i=1; i<nTrans*3; i=i+3)
-    {
-        if(vetor[i]==i)
-            bitcoin[i].valor = bitcoin[i].valor +  vetor[i+1];
     }
     //imprime
     for(int i=0; i<6; i++)
@@ -40,7 +40,7 @@ void transacao(int nTrans, unsigned char vetor[])
 int main()
 {
     
-    unsigned char data[15] = {0,1,2, 2,1,1, 3,1,3, 5,1,2, 5,1,1};
-    transacao(5, data);
+    unsigned char data[15] = {0,1,2, 1,2,1, 3,2,3, 5,0,2, 1,5,1};
+    transacao(data, 5, 6);
     return 0;
 }
