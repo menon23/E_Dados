@@ -162,7 +162,7 @@ int main()
       printf("%02x\t",bloco.data[l]);
       bloco.data[l+1] = genRandLong(&semente)%256;//0-255 endereço de destino
       printf("%02x\t",bloco.data[l+1]);
-      bloco.data[l+2] = genRandLong(&semente)%51;//0-50 valor em bitcoins
+      bloco.data[l+2] = 1 + genRandLong(&semente)%50;//0-50 valor em bitcoins
       printf("%d\t",bloco.data[l+2]);
       printf("\n");
     }
